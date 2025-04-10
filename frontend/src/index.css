@@ -1,0 +1,50 @@
+body {
+  background-color: #f4f4f5; /* soft gray */
+  font-family: 'Inter', sans-serif;
+}
+
+.auth-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-title {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.auth-subtitle {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.auth-btn {
+  background-color: #0c1f45; /* deep navy */
+  border-radius: 10px;
+  font-weight: 600;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+}
+
+
+
+.form-control {
+  border-radius: 10px !important;
+  padding: 10px;
+}
+.link-navy {
+  color: #0c1f45;           /* same as button */
+  text-decoration: none;   /* removes underline */
+  font-weight: 500;
+}
+
+.link-navy:hover {
+  color: #081a38;           /* slightly darker on hover */
+  text-decoration: none;
+}
