@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import API from '../services/api';
-import { toast } from 'react-toastify';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../index.css'; 
+import React, { useState } from "react";
+import API from "../services/api";
+import { toast } from "react-toastify";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../index.css";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    password_confirmation: '',
+    name: "",
+    email: "",
+    password: "",
+    password_confirmation: "",
   });
 
   const handleChange = (e) => {
@@ -19,18 +19,18 @@ const Signup = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      const res = await API.post('/register', {
+      const res = await API.post("/register", {
         ...formData,
         tc: true,
       });
 
-      if (res.data.status === 'Success') {
+      if (res.data.status === "Success") {
         toast.success(res.data.message);
       } else {
         toast.error(res.data.message);
       }
     } catch (error) {
-      toast.error('Something went wrong');
+      toast.error("Something went wrong");
       console.error(error);
     }
   };
@@ -82,13 +82,13 @@ const Signup = () => {
           </button>
         </form>
         <div className="text-center mt-3">
-
-        <p>
-          Don't have an account ?{" "}
-          <a href="/login" className="link-navy">
-         Login
-          </a>
-        </p>        </div>
+          <p>
+            Don't have an account ?{" "}
+            <a href="/login" className="link-navy">
+              Login
+            </a>
+          </p>{" "}
+        </div>
       </div>
     </div>
   );

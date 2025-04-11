@@ -5,6 +5,7 @@ import express from 'express';
 import cors from 'cors';
 import connectDB from './config/connectdb.js';
 import userRoutes from './routes/userRoutes.js'
+import rideRoutes from './routes/rideRoutes.js'
 
 // Initialize Express app
 const app = express();
@@ -16,6 +17,8 @@ app.use(express.json()); // To parse JSON request bodies
 //Load Routes
 
 app.use("/api/user", userRoutes)
+app.use('/api/rides', rideRoutes);
+
 
 // Set up environment variables
 const PORT = process.env.PORT || 8000; // Fallback if PORT is not in .env

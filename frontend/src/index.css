@@ -39,8 +39,8 @@ body {
   padding: 10px;
 }
 .link-navy {
-  color: #0c1f45;           /* same as button */
-  text-decoration: none;   /* removes underline */
+  color: #0c1f45;           
+  text-decoration: none;   
   font-weight: 500;
 }
 

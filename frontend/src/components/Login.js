@@ -13,7 +13,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await API.post("/login", { email, password });
+      const res = await API.post("/user/login", { email, password });
       if (res.data.status === "Success") {
         localStorage.setItem("token", res.data.token);
         toast.success("Login Successful");
@@ -49,7 +49,7 @@ const Login = () => {
             required
           />
           <button className="auth-btn w-100 text-white" type="submit">
-            Sign Up.
+          Login in 
           </button>
         </form>
 

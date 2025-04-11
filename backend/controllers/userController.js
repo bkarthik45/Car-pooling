@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import transporter from "../config/emailConfig.js";
 
+
 class UserController{
     static userRegistration = async(req,res)=>{
         const {name, email, password, password_confirmation, tc} = req.body
@@ -179,6 +180,40 @@ static userPasswordReset = async (req, res) => {
     }
 };
 
+
+static getUserProfile = async(req,res)=>{
+    try{
+        const user= await UserModel.findById(req.user._id).select('-password');
+        res.status(200).json({status:"success", user});
+    
+    }catch(error){
+        console.error(error);
+        res.status(500).json({status:"failed", message:"Unable to fetch Profile"})
+    }
+}
+
+static updateUserProfile = async(req,res)=>{
+    const {name, phone, isDriver, carModel, carPlate, seats} = req.body
+    try{
+        const updateData = {
+            name,phone,isDriver,carModel,carPlate,seats,
+        };
+        const updatedUser = await UserModel.findByIdAndUpdate(
+            req.user._id,
+            updateData,{new:true}
+        ).select('-password');
+        res.status(200).json({
+            status:"success",message:"Profile updated successfully",
+            user:updatedUser
+        });
+
+    }catch(error){
+        console.log(error);
+        res.status(500).json({status:"failed", message:"Unable to update Profile"})
+
+
+    }
+}
 
 }
 

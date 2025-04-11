@@ -3,12 +3,16 @@ import mongoose from "mongoose";
 //Defining Schema
 
 const userSchema = new mongoose.Schema({
-    name:{type:String, required: true, trim: true},
-    email:{type:String, required: true, trim: true},
-    password:{type:String, required: true, trim: true},
-    tc:{type:Boolean, required: true},
+  name: { type: String, required: true, trim: true },
+  email: { type: String, required: true, trim: true },
+  password: { type: String, required: true, trim: true },
+  tc: { type: Boolean, required: true },
+  phone: { type: String },
+  isDriver: { type: Boolean, default: false },
+  carModel: { type: String },
+  carPlate: { type: String },
+  seats: { type: Number },
+});
 
-})
-
-const UserModel = mongoose.model("user",userSchema)
-export default UserModel
+const UserModel = mongoose.model("user", userSchema);
+export default UserModel;
