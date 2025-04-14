@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import API from "../services/api";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../index.css"; // or './App.css'
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -30,7 +28,6 @@ const Login = () => {
     <div className="d-flex justify-content-center align-items-center vh-100">
       <div className="auth-card">
         <h3 className="auth-title">Log In</h3>
-        <p className="auth-subtitle">Create an car account</p>
         <form onSubmit={handleLogin}>
           <input
             type="email"
@@ -48,21 +45,13 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <button className="auth-btn w-100 text-white" type="submit">
-          Login in 
+          <button className="btn btn-primary w-100" type="submit">
+            Login
           </button>
         </form>
-
-        <p>
-          Don't have an account ?{" "}
-          <a href="/signup" className="link-navy">
-            Sign up
-          </a>
+        <p className="mt-2">
+          Don't have an account? <a href="/signup">Sign Up</a>
         </p>
-
-        <div className="text-center mt-3">
-          <p>Sign in with · Google 🔒 ⚠️</p>
-        </div>
       </div>
     </div>
   );

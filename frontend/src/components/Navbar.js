@@ -1,17 +1,33 @@
-import React from 'react'
-import "../index.css"; 
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Navbar.css'; // Create and use this CSS file
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    window.location.href = "/login";   // ✅ Force full reload to reset state
+};
+
   return (
-    <nav className="navbar navbar-expand-lg link-navy  px-4">
-    <span className="navbar-brand">Carpooling App</span>
-
-    <div className="ms-auto">
-      <Link to ="/profile" className="btn btn-outline-light">Profile</Link>
+    <nav className="navbar">
+  <div className="container-fluid">
+    <span className="navbar-brand" style={{ cursor: 'pointer' }} onClick={() => navigate('/dashboard')}>
+      🚗 Carpooling
+    </span>
+    <div className="d-flex">
+      <button className="btn btn-outline-light me-2" onClick={() => navigate('/profile')}>
+        Profile
+      </button>
+      <button className="btn btn-outline-light" onClick={handleLogout}>
+        Logout
+      </button>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

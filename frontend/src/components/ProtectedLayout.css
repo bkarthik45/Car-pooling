@@ -1,0 +1,12 @@
+.layout-container {
+    display: flex;
+    margin-top: 60px; /* Space for navbar */
+  }
+  
+  .main-content {
+    margin-left: 200px; /* Same as sidebar width */
+    padding: 2rem;
+    width: 100%;
+    background-color: #f9f9f9;
+  }
+  

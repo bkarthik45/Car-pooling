@@ -3,6 +3,7 @@ import API from "../services/api";
 import { toast } from "react-toastify";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../index.css";
+import { Navigate } from "react-router-dom";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,10 @@ const Signup = () => {
     password: "",
     password_confirmation: "",
   });
+  const token = localStorage.getItem('token');
+    if(token){
+      return <Navigate to ="/dashboard"/>
+    }
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -19,7 +24,7 @@ const Signup = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      const res = await API.post("/register", {
+      const res = await API.post("/user/register", {
         ...formData,
         tc: true,
       });
@@ -83,7 +88,7 @@ const Signup = () => {
         </form>
         <div className="text-center mt-3">
           <p>
-            Don't have an account ?{" "}
+           have an account ?{" "}
             <a href="/login" className="link-navy">
               Login
             </a>
